@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+  <h2>My Fishing Products</h2>
+
+  <!-- Tag Filter Form -->
+  <form method="GET" action="/my-products">
+    <label for="tag">Filter by tag:</label>
+    <select name="tag" id="tag" onchange="this.form.submit()">
+      <option value="">All</option>
+      <option value="bass" <%=selectedTag==='bass' ? 'selected' : '' %>>Bass</option>
+      <option value="gear" <%=selectedTag==='gear' ? 'selected' : '' %>>Gear</option>
+      <option value="freshwater" <%=selectedTag==='freshwater' ? 'selected' : '' %>>Freshwater</option>
+      <option value="trout" <%=selectedTag==='trout' ? 'selected' : '' %>>Trout</option>
+    </select>
+  </form>
+
+  <ul>
+    <% products.forEach(product=> { %>
+      <li>
+        <img src="<%= product.images[0]?.src %>" width="100" />
+        <p>
+          <%= product.title %>
+        </p>
+        <p>
+          <%= product.body_html %>
+        </p>
+        <p>Price: <%= product.variants[0]?.price %> USD</p>
+        <a href="/shopify/product/<%= product.id %>">View Details</a>
+      </li>
+      <% }) %>
+  </ul>
+
+<div class="pagination">
+  <% if (currentPage> 1) { %>
+    <a href="?page=<%= currentPage - 1 %>">Previous</a>
+    <% } %>
+
+      <% for (let i=1; i <=totalPages; i++) { %>
+        <a href="?page=<%= i %>" <%=i===currentPage ? 'class="active"' : '' %>><%= i %></a>
+        <% } %>
+
+          <% if (currentPage < totalPages) { %>
+            <a href="?page=<%= currentPage + 1 %>">Next</a>
+            <% } %>
+</div>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rod001",
+    "name": "CarbonX Fishing Rod",
+    "description": "Lightweight carbon fiber rod with ergonomic grip, perfect for freshwater casting.",
+    "price": 75.00,
+    "currency": "USD",
+    "icon": "fishing-rod",
+    "image": "/images/fishing_rod.png",
+    "tags": ["rod", "casting", "freshwater"]
+  },
+  {
+    "id": "reel002",
+    "name": "AquaSpin Reel",
+    "description": "High-speed spinning reel with anti-reverse and smooth drag system.",
+    "price": 60.00,
+    "currency": "USD",
+    "icon": "reel",
+    "image": "/images/spin_reel.png",
+    "tags": ["reel", "spinning", "gear"]
+  },
+  {
+    "id": "tackle003",
+    "name": "Pro Tackle Box",
+    "description": "Waterproof tackle box with 4 compartments and removable trays.",
+    "price": 45.00,
+    "currency": "USD",
+    "icon": "tackle-box",
+    "image": "/images/tackle_box.png",
+    "tags": ["tackle", "storage", "accessories"]
+  },
+  {
+    "id": "bait004",
+    "name": "LiveBite Lures Pack",
+    "description": "Assorted soft plastic lures designed for bass and trout fishing.",
+    "price": 25.00,
+    "currency": "USD",
+    "icon": "lure",
+    "image": "/images/lure_pack.png",
+    "tags": ["bait", "lures", "bass", "trout"]
+  }
+]

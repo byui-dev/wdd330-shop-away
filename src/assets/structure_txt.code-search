@@ -1,0 +1,7 @@
+# Query: structure.txt
+
+1 result - 1 file
+
+shop-away\structure1.txt:
+  18: -a----        10/16/2025  12:19 AM           1680 structure.txt                                                                      
+Remove-Item .\structure*.txt

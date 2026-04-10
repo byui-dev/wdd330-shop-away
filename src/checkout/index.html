@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Checkout Summary</title>
+   <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+
+<body>
+   <header>
+      <h1>Shop Away</h1>
+   </header>
+      <main>
+         <h2>Checkout Summary</h2>
+      
+         <ul id="checkout-summary"></ul>
+      
+         <p>Total (USD): $<span id="checkout-total-usd">0.00</span></p>
+         <p>Total (ZAR): R<span id="checkout-total-zar">0.00</span></p>
+      
+         <button id="confirm-purchase">Confirm Purchase</button>
+         <button id="clear-cart">Clear Cart</button>
+      
+         <!-- Confirmation Modal -->
+         <div id="confirmation-modal"
+            style="display:none; position:fixed; top:30%; left:30%; background:#fff; padding:20px; border:1px solid #ccc;">
+            <h3>Purchase Confirmed!</h3>
+            <p>Thank you for shopping with Shop Away.</p>
+            <button id="close-modal">Close</button>
+         </div>
+      </main>
+
+   <script type="module" src="/assets/checkout.js"></script>
+</body>
+
+</html>

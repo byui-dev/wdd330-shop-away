@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Shop Away</h1>
+    </header>
+
+    <main>
+        <h2>Search Results</h2>
+
+        <!-- Empty Results Message -->
+        <p id="no-results" style="display: none;">No products matched your search.</p>
+
+        <!-- Product Results -->
+        <ul id="search-results">
+            <li>
+                <img src="/images/fishing_rod.png" width="100" alt="Fishing Rod" />
+                <p>CarbonX Fishing Rod</p>
+                <p>Lightweight carbon fiber rod with ergonomic grip.</p>
+                <p>Price: 75.00 USD</p>
+            </li>
+            <li>
+                <img src="/images/spin_reel.png" width="100" alt="Spin Reel" />
+                <p>AquaSpin Reel</p>
+                <p>High-speed spinning reel with anti-reverse system.</p>
+                <p>Price: 60.00 USD</p>
+            </li>
+            <!-- Add more static or JS-rendered products -->
+        </ul>
+    </main>
+
+    <script type="module" src="/assets/search.js"></script>
+</body>
+
+</html>

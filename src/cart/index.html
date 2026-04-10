@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Shop Away</h1>
+  </header>
+
+  <main>
+    <h2>Your Cart</h2>
+
+    <!-- Empty Cart Message -->
+    <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
+
+    <!-- Cart Items -->
+    <ul id="cart-items">
+      <li>
+        <img src="/icons/fishing-rod.svg" class="cart-icon" alt="Fishing Rod" />
+        <strong>CarbonX Fishing Rod</strong> - Qty: 2 - Price: 75.00 USD
+        <form>
+          <input type="hidden" name="productId" value="rod001" />
+          <button name="action" value="decrease">-</button>
+          <span>2</span>
+          <button name="action" value="increase">+</button>
+        </form>
+        <form>
+          <input type="hidden" name="productId" value="rod001" />
+          <button type="submit">Remove</button>
+        </form>
+      </li>
+      <!-- Add more static or JS-rendered items -->
+    </ul>
+  </main>
+
+  <script type="module" src="/assets/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+    <h2>Search Results</h2>
+    <p> Results for: "<%= query %>"</p>
+
+    <% if (results.length===0) { %>
+        <p>No products matched your search.</p>
+        <% } else { %>
+            <ul>
+                <% results.forEach(product=> { %>
+                    <li>
+                        <img src="<%= product.images[0]?.src %>" width="100" />
+                        <p>
+                            <%= product.title %>
+                        </p>
+                        <p>
+                            <%= product.body_html %>
+                        </p>
+                        <p>Price: <%= product.variants[0]?.price %> USD</p>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } %>

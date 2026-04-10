@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<h2>Your Cart</h2>
+<% if (cart.length === 0) { %>
+  <p>Your cart is empty.</p>
+<% } else { %>
+  <ul>
+    <% cart.forEach(item => { %>
+      <li>
+        <img src="/icons/<%= item.icon %>.svg" class="cart-icon" />
+        <strong><%= item.name %></strong> - Qty: <%= item.quantity %> - Price: <%= item.price %> 
+        <form action="/cart/update" method="POST">
+          <input type="hidden" name="productId" value="<%= item.id %>" />
+          <button name="action" value="decrease">-</button>
+          <span><%= item.quantity %></span>
+          <button name="action" value="increase">+</button>  
+        </form>
+        <form action="/cart/remove" method="POST">
+          <input type="hidden" name="productId" value="<%= item.id %>" />
+          <button type="submit">Remove</button>  
+        </form>  
+    </li>
+   <% }) %>   
+  </ul>      
+<% } %>  
