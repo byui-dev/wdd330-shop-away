@@ -9,7 +9,7 @@ router.get("/product/:id", async (req, res) => {
         return res.status(404).send("Product not found");
     }
 
-    res.render("productDetail", { product });
+    res.render("productDetail", { product, selectedCurrency: req.session.currency || "USD" });
 });
 
 module.exports = router;

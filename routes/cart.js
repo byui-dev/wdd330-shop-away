@@ -10,7 +10,7 @@ const { convertCurrency } = require("../utils/currency");
 
 router.get("/", (req, res) => {
   const cart = getCart(req);
-  res.render("cart", { cart });
+  res.render("cart", { cart, selectedCurrency: req.session.currency || "USD" });
 });
 
 router.post("/add", (req, res) => {
@@ -36,7 +36,7 @@ router.get("/checkout", async (req, res) => {
   );
   const currency = req.session.currency || "USD";
   const totalConverted = await convertCurrency(totalUSD, "USD", currency);
-  res.render("checkout", { cart, totalUSD, totalConverted, currency });
+  res.render("checkout", { cart, totalUSD, totalConverted, currency, selectedCurrency: req.session.currency || "USD" });
 });
 
 module.exports = router;

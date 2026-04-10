@@ -21,7 +21,8 @@ router.get('/', async (req, res) => {
       products: paginated,
       selectedTag: tag,
       currentPage: page,
-      totalPages
+      totalPages,
+      selectedCurrency: req.session.currency || 'USD',
     });
   } catch (err) {
     console.error('Error loading Shopify products:', err);

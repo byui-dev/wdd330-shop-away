@@ -3,7 +3,7 @@ const router = express.Router();
 const { fetchShopifyProducts } = require("../utils/shopifyApi");
 
 router.get("/", (req, res) => {
-  res.render("index", { title: "Shop Away" });
+  res.render("index", { title: "Shop Away", selectedCurrency: req.session.currency || "USD" });
 });
 
 router.get("/search", async (req, res) => {
@@ -14,7 +14,7 @@ router.get("/search", async (req, res) => {
   ? allProducts.filter(p => p.title.toLocaleLowerCase().includes(query) || p.body_html.toLocaleLowerCase().includes(query))
   : [];
 
-  res.render("searchResults", { title: "Search Results", query, results });
+  res.render("searchResults", { title: "Search Results", query, results, selectedCurrency: req.session.currency || "USD" });
 });
 
 router.post("/set-currency", (req, res) => {
