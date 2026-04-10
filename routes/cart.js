@@ -20,7 +20,7 @@ router.post("/add", (req, res) => {
 
 router.post("/remove", (req, res) => {
   removeFromCart(req, req.body.productId);
-  res.redirect("cart");
+  res.redirect("/cart");
 });
 
 router.post("/update", (req, res) => {
@@ -36,7 +36,13 @@ router.get("/checkout", async (req, res) => {
   );
   const currency = req.session.currency || "USD";
   const totalConverted = await convertCurrency(totalUSD, "USD", currency);
-  res.render("checkout", { cart, totalUSD, totalConverted, currency, selectedCurrency: req.session.currency || "USD" });
+  res.render("checkout", {
+    cart,
+    totalUSD,
+    totalConverted,
+    currency,
+    selectedCurrency: req.session.currency || "USD",
+  });
 });
 
 module.exports = router;
