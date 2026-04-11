@@ -1,34 +1,18 @@
 <%- include('partials/header') %>
 
-  <h2>My Fishing Products</h2>
+<div class="page-content"> 
+  <h2>Products</h2>
 
-  <!-- Tag Filter Form -->
-  <form method="GET" action="/my-products">
-    <label for="tag">Filter by tag:</label>
-    <select name="tag" id="tag" onchange="this.form.submit()">
-      <option value="">All</option>
-      <option value="bass" <%=selectedTag==='bass' ? 'selected' : '' %>>Bass</option>
-      <option value="gear" <%=selectedTag==='gear' ? 'selected' : '' %>>Gear</option>
-      <option value="freshwater" <%=selectedTag==='freshwater' ? 'selected' : '' %>>Freshwater</option>
-      <option value="trout" <%=selectedTag==='trout' ? 'selected' : '' %>>Trout</option>
-    </select>
-  </form>
-
-  <ul>
-    <% products.forEach(product=> { %>
-      <li>
-        <img src="<%= product.images[0]?.src %>" width="100" />
-        <p>
-          <%= product.title %>
-        </p>
-        <p>
-          <%= product.body_html %>
-        </p>
-        <p>Price: <%= product.variants[0]?.price %> USD</p>
+  <div class="product-grid">
+    <% products.forEach(product => { %>
+      <div class="product-card">
+        <img src="<%= product.images[0]?.src %>" alt="<%= product.title %>" />
+        <p class="product-title"><%= product.title %></p>
+        <p class="product-price">$<%= product.variants[0]?.price %></p> 
         <a href="/shopify/product/<%= product.id %>">View Details</a>
-      </li>
-      <% }) %>
-  </ul>
+      </div>
+    <% }) %>
+  </div>
 
 <div class="pagination">
   <% if (currentPage> 1) { %>

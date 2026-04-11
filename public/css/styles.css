@@ -1,0 +1,190 @@
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  --primary: #1A3C5E;
+  --secondary: #2A9D8F;
+  --action: #E9C46A;
+  --danger: #E76F51;
+  --bg: #F4F6F8;
+  --surface: #FFFFFF;
+  --text: #2C2C2C;
+  --muted: #6B7C93;
+}
+
+/* ---- Reset & Base ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* ---- Navigation ---- */
+header {
+  background-color: var(--primary);
+  padding: 0.75rem 2rem;
+}    
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.brand-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--surface);
+  text-transform: uppercase; 
+}
+
+.nav-links a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: var(--surface);
+  text-decoration: none;
+  margin-left: 1.5rem;
+}
+
+.nav-links a:hover {
+  color: var(--action);
+}
+
+/* ---- Page Layout ---- */
+main, .page-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* ---- Product Grid ---- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);  
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-card .product-title {
+  font-family: 'Open Sans', sans-serif;  
+  font-weight: 600;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.product-card .product-price {
+  font-family: 'Open Sans', sans-serif;  
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/*--- Buttons ---*/
+button, .btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  background-color: var(--action);  
+  color: var(--primary);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--secondary);
+  color: var(--surface);
+}
+
+button.danger {
+  background-color: var(--danger);
+  color: var(--surface);
+}
+
+/* ---- Cart & Checkout ---- */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);  
+}
+
+.cart-summary {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);  
+}
+
+.price-total {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;    
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+body {
+  animation: fadeIn 0.4s ease;
+}

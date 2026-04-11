@@ -1,15 +1,17 @@
 <header>
 <link rel="stylesheet" href="/css/styles.css" />    
-  <nav style="display: flex; justify-content: space-between; align-items: center;">
-   <div>
+  <nav>
+   <div class="nav-brand">
+     <img src="/images/logo.png" alt="Shop Away Logo" class="logo" />
+     <span class="brand-name">SHOP AWAY</span>
+   </div>     
+    <div class="nav-links">
     <a href="/">Home</a>
     <a href="/myProducts">Products</a>
     <a href="/cart">Cart(<%= cart.length %>)</a>
    </div> 
-    
-   <div>
-     <form action="/set-currency" method="POST" class="currency-form">
-        <label for="currency">Currency:</label>
+   <div class="nav-currency">
+     <form action="/set-currency" method="POST" class="currency-form">     
         <select name="currency" id="currency" onchange="this.form.submit()">
           <option value="USD" <%= selectedCurrency === 'USD' ? 'selected' : '' %>>USD</option>
           <option value="EUR" <%=selectedCurrency==='EUR' ? 'selected' : '' %>>EUR</option>
