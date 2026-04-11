@@ -1,6 +1,13 @@
 <%- include('partials/header') %>
-<h1>Welcome to Shop Away</h1>
-<form action="/search" method="GET">
-  <input type="text" name="q" placeholder="Search Etsy..." required />
-  <button type="submit">Search</button>  
-</form>
+
+<div class="hero">
+<div class="hero-content">
+   <h1>Welcome to Shop Away</h1>
+   <p class="hero-subtitle">Discover top-quality gear at unbeatable prices</p>
+    <form action="/search" method="GET" class="hero-search">
+      <input type="text" name="q" placeholder="Search Etsy..." required />
+     <button type="submit">Search</button>  
+    </form>
+    <a href="/myProducts" class="btn hero-cta">Shop Now</a>
+  </div>
+</div>
