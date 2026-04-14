@@ -14,9 +14,9 @@
                             <%= product.title %>
                         </p>
                         <p>
-                            <%= product.body_html %>
+                            <%- product.body_html %>
                         </p>
-                        <p>Price: <%= product.variants[0]?.price %> USD</p>
+                        <p>Price: <%= currencySymbol %><%= product.ConvertedPrice %></p>
                     </li>
                     <% }) %>
             </ul>
