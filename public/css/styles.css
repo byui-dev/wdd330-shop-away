@@ -73,10 +73,20 @@ nav {
 
 /* ---- Hero Section ---- */
 .hero {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 2rem;
  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
  color: var(--surface);
  padding: 5rem 2rem;
- text-align: center;   
+ text-align: center;
+}
+
+.hero-image img {
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .hero-content {
@@ -236,4 +246,29 @@ button:active {
 
 body {
   animation: fadeIn 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* stack image below text */
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-search input {
+    width: 100%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
