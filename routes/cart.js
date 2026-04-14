@@ -6,11 +6,24 @@ const {
   removeFromCart,
   updateQuantity,
 } = require("../utils/cartUtils");
-const { convertCurrency } = require("../utils/currency");
+const { convertCurrency, getCurrencySymbol } = require("../utils/currency");
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const cart = getCart(req);
-  res.render("cart", { cart, selectedCurrency: req.session.currency || "USD" });
+  const selectedCurrency = req.session.currency || "USD";
+  const currencySymbol = getCurrencySymbol(selectedCurrency);
+
+  const convertedCart = await Promise.all(
+    cart.map(async(item) => {
+      const convertedPrice = await convertCurrency(parseFloat(item.price), "USD", selectedCurrency);
+      return {
+        ...item,
+        convertedPrice: convertedPrice.toFixed(2),
+      };
+    })
+  );
+
+  res.render("cart", { cart: convertedCart, selectedCurrency, currencySymbol });
 });
 
 router.post("/add", (req, res) => {

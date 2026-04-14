@@ -1,8 +1,8 @@
 <%- include('partials/header') %>
 <h2><%= product.title %></h2>
 <img src="<%= product.images[0]?.src %>" width="300"/>
-<p><%= product.body_html %></p>
-<p>Price: $<%= product.variants[0]?.price %></p>
+<p><%- product.body_html %></p>
+<p>Price: <%= currencySymbol %><%= convertedPrice %></p>
 <form action="/cart/add" method="POST">
   <input type="hidden" name="product[id]" value="<%= product.id %>" />
   <input type="hidden" name="product[name]" value="<%= product.title %>" />

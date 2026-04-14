@@ -7,7 +7,7 @@
     <% cart.forEach(item => { %>
       <li>
         <img src="/icons/<%= item.icon %>.svg" class="cart-icon" />
-        <strong><%= item.name %></strong> - Qty: <%= item.quantity %> - Price: <%= item.price %> 
+        <strong><%= item.name %></strong> - Qty: <%= item.quantity %> - Price: <%= currencySymbol %><%= item.convertedPrice %>
         <form action="/cart/update" method="POST">
           <input type="hidden" name="productId" value="<%= item.id %>" />
           <button name="action" value="decrease">-</button>
