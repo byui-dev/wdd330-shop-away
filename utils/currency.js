@@ -14,4 +14,13 @@ async function convertCurrency(amount, from = "USD", to = "USD") {
   }
 }
 
-module.exports = { convertCurrency };
+function getCurrencySymbol(currency) {
+  const symbols = {
+    USD: "$",
+    EUR: "€",
+    GBP: "£",
+  };
+  return symbols[currency] || currency;
+}
+
+module.exports = { convertCurrency, getCurrencySymbol };
