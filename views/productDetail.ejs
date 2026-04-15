@@ -10,3 +10,28 @@
   <input type="hidden" name="product[icon]" value="<%= product.images[0]?.src %>" />
   <button type="submit">Add to Cart</button>
 </form>  
+
+<script>
+  const currentproduct = {
+    id: "<%= product.id %>",
+    title: "<%= product.title %>",
+    price: "<%= convertedPrice %>",
+    symbol: "<%= currencySymbol %>",
+    image: "<%= product.images[0]?.src %>",
+    url: "/shopify/product/<%= product.id %>"
+  }
+
+  const MAX_RECENT = 4;
+  let recentlyViewed = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
+
+  recentlyViewed = recentlyViewed.filter(p => p.id !== currentproduct.id);
+
+  recentlyViewed.unshift(currentproduct);
+
+  if (recentlyViewed.length > MAX_RECENT) {
+    recentlyViewed = recentlyViewed.slice(0, MAX_RECENT);
+  }
+
+  localStorage.setItem("recentlyViewed", JSON.stringify(recentlyViewed));
+
+</script>

@@ -121,6 +121,18 @@ nav {
   width: 300px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-search input:focus {
+  width: 360px;
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.4);
+  outline: none;
+}
+
+.hero-search input.input-shrink {
+  width: 300px;
+  box-shadow: none;
 }
 
 .hero-cta {
@@ -246,6 +258,16 @@ button:active {
 
 body {
   animation: fadeIn 0.4s ease;
+}
+
+.input-error {
+  border: 2px solid var(--danger);
+  outline: none;
+}
+
+.product-card.card-selected {
+  border: 2px solid var(--secondary);
+  box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.2);
 }
 
 @media (max-width: 768px) {

@@ -8,7 +8,7 @@
       <div class="product-card">
         <img src="<%= product.images[0]?.src %>" alt="<%= product.title %>" />
         <p class="product-title"><%= product.title %></p>
-        <p class="product-price">$<%= product.variants[0]?.price %></p> 
+        <p class="product-price"><%=currencySymbol %><%= product.convertedPrice %></p> 
         <a href="/shopify/product/<%= product.id %>">View Details</a>
       </div>
     <% }) %>
@@ -27,3 +27,41 @@
             <a href="?page=<%= currentPage + 1 %>">Next</a>
             <% } %>
 </div>
+
+<script>
+  document.querySelectorAll(".product-card").forEach(card => {
+    card.addEventListener("click", function() {
+      document.querySelectorAll(".product-card").forEach(c => c.classList.remove("card-selected"));
+      this.classList.add("card-selected");
+    });
+  });
+</script>
+
+<div class="page-content">
+  <h3>Recently Viewed</h3>
+  <div class="product-grid" id="recently-viewed"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const recentlyViewed = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
+    const container = document.getElementById("recently-viewed");
+
+    if (recentlyViewed.length === 0) {
+      container.closest(".page-content").style.display = "none";
+      return;
+    }
+
+    recentlyViewed.forEach(product => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.title}" />
+        <p class="product-title">${product.title}</p>
+        <p class="product-price">${product.symbol}${product.price}</p>
+        <a href="${product.url}">View Details</a>
+      `;
+      container.appendChild(card);
+    });
+  });
+</script>

@@ -13,4 +13,36 @@
   <div class="hero-image">
     <img src="/images/hero-snowboard.png" alt="Snowboard gear" />
   </div>
-</div>  
+</div>
+
+<script>
+  document.querySelector(".hero-search").addEventListener("submit" ,function(e) {
+    const input = this.querySelector("input[name='q']");
+    if (input.value.trim() === "") {
+      e.preventDefault();
+      input.classList.add("input-error");
+      input.placeholder = "Please enter a search term";
+    }
+  });
+
+  document.querySelector("input[name='q']").addEventListener("input", function() {
+    this.classList.remove("input-error");
+    this.placeholder = "Search products...";
+  });
+
+  document.querySelector("input[name='q']").addEventListener("focus", function() {
+    this.classList.remove("input-shrink");
+  });
+
+  document.querySelector("input[name='q']").addEventListener("blur", function() {
+    this.classList.add("input-shrink");
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const input = document.querySelector("input[name='q']");
+    if (input) {
+      input.focus();
+      input.blur();
+    }  
+  });
+</script>
